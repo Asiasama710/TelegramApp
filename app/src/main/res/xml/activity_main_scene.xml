@@ -31,8 +31,8 @@
             <KeyPosition
                 motion:framePosition="2"
                 motion:motionTarget="@+id/edit_icon"
-                motion:transitionEasing="accelerate"
-                motion:sizePercent="0" />
+                motion:sizePercent="0"
+                motion:transitionEasing="accelerate" />
 
         </KeyFrameSet>
 
@@ -44,19 +44,18 @@
         <OnSwipe
             motion:onTouchUp="autoCompleteToEnd"
             motion:touchAnchorId="@id/toolbar"
-            motion:touchRegionId="@+id/toolbar"
-          />
+            motion:touchRegionId="@+id/toolbar" />
         <KeyFrameSet>
             <KeyPosition
                 motion:framePosition="2"
                 motion:motionTarget="@+id/qr_code_icon"
-                motion:transitionEasing="accelerate"
-                motion:sizePercent="0" />
+                motion:sizePercent="0"
+                motion:transitionEasing="accelerate" />
             <KeyPosition
                 motion:framePosition="2"
                 motion:motionTarget="@+id/camera_icon"
-                motion:transitionEasing="accelerate"
-                motion:sizePercent="0" />
+                motion:sizePercent="0"
+                motion:transitionEasing="accelerate" />
 
         </KeyFrameSet>
     </Transition>
@@ -135,7 +134,14 @@
             motion:layout_constraintBottom_toBottomOf="@+id/image"
             motion:layout_constraintStart_toStartOf="@+id/name"
             motion:layout_constraintTop_toBottomOf="@+id/name"
-            motion:layout_editor_absoluteX="122dp" />
+            motion:layout_editor_absoluteX="122dp" >
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="12sp" />
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#727272" />
+        </Constraint>
 
         <Constraint
             android:id="@+id/camera_icon"
@@ -149,8 +155,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
         <Constraint
@@ -198,11 +204,17 @@
             android:id="@+id/state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             android:text="online"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            motion:layout_constraintStart_toStartOf="@+id/name"
-            motion:layout_constraintTop_toBottomOf="@+id/name" />
+            motion:layout_constraintBottom_toTopOf="@id/toolbar"
+            motion:layout_constraintStart_toStartOf="@+id/name">
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="14sp" />
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#FFFFFF" />
+        </Constraint>
 
         <Constraint
             android:id="@+id/qr_code_icon"
@@ -229,12 +241,12 @@
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="48dp"
-            motion:layout_constraintBottom_toTopOf="@+id/toolbar"
+            android:alpha="2"
+            motion:layout_constraintBottom_toTopOf="@+id/state"
             motion:layout_constraintStart_toStartOf="parent">
             <CustomAttribute
                 motion:attributeName="textSize"
-                motion:customDimension="24sp" />
+                motion:customDimension="20sp" />
         </Constraint>
 
         <Constraint
@@ -353,10 +365,16 @@
             android:layout_height="wrap_content"
             android:text="online"
             android:textColor="@color/white"
-            android:textSize="14sp"
             motion:layout_constraintBottom_toBottomOf="@+id/image"
             motion:layout_constraintStart_toStartOf="@+id/name"
-            motion:layout_constraintTop_toBottomOf="@+id/name" />
+            motion:layout_constraintTop_toBottomOf="@+id/name" >
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="12sp" />
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#727272" />
+        </Constraint>
         <Constraint
             android:id="@+id/number_icon"
             android:layout_width="wrap_content"

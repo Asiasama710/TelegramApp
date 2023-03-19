@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
             android:elevation="5dp"
             android:text="Account"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
             android:textColor="#6F83DD"
             android:textSize="16sp" />
 
@@ -41,6 +43,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#003A3A3A"
                 android:hint="Tab to change phone number"
+                android:text="Tab to change phone number"
+                android:textColor="#979595"
                 android:paddingTop="40dp"
                 android:textColorHint="#979595"
                 android:textSize="16sp"
@@ -54,11 +58,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="Asia_sama"
+            android:hint=" @Asia_sama"
             android:textColorHint="@color/white"
             app:boxStrokeColor="#878787"
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textField"
@@ -69,8 +72,10 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#003A3A3A"
                 android:hint="Username"
+                android:text="Username"
+                android:textColor="#979595"
                 android:paddingTop="40dp"
-                android:textColorHint="#979595"
+                android:textColorHint="#727272"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -88,8 +93,7 @@
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textField_username_label"
-            app:placeholderText="sdsaddasda">
+            app:layout_constraintTop_toBottomOf="@+id/textField_username_label">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -97,6 +101,8 @@
                 android:backgroundTint="#003A3A3A"
                 android:hint="Add a few words about yourself"
                 android:paddingTop="40dp"
+                android:text="Add a few words about yourself"
+                android:textColor="#727272"
                 android:textColorHint="#727272"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -123,21 +129,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="5dp"
+            android:layout_marginStart="16dp"
             android:text="Setting"
             android:textStyle="bold"
             android:textColor="#6F83DD"
             android:textSize="16sp" />
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tetField"
+            android:id="@+id/textField_bio_lael"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            app:startIconDrawable="@drawable/baseline_notifications_none_24"
+            app:startIconDrawable="@drawable/baseline_chat_bubble_outline_24"
             app:startIconTint="#727272"
-            android:hint="Notification and Sound"
+            android:hint="Chat Setting"
             android:textColorHint="@color/white"
             app:boxStrokeColor="#878787"
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
@@ -176,14 +182,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField_bio_lael"
+            android:id="@+id/tetField"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            app:startIconDrawable="@drawable/baseline_chat_bubble_outline_24"
+            app:startIconDrawable="@drawable/baseline_notifications_none_24"
             app:startIconTint="#727272"
-            android:hint="Chat Setting"
+            android:hint="Notification and Sound"
             android:textColorHint="@color/white"
             app:boxStrokeColor="#878787"
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
@@ -197,6 +203,8 @@
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
     </LinearLayout>
