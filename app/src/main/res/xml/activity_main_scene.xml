@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="urn:oasis:names:tc:xliff:document:1.2"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="3856">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:onTouchUp="decelerateAndComplete"
+            motion:touchAnchorId="@id/toolbar"
+            motion:touchRegionId="@+id/toolbar" />
+        <KeyFrameSet>
+
+            <KeyPosition
+                motion:framePosition="30"
+                motion:motionTarget="@+id/image"
+                motion:percentHeight="0"
+                motion:percentWidth="0" />
+            <KeyPosition
+                motion:framePosition="90"
+                motion:motionTarget="@+id/image"
+                motion:percentHeight="1"
+                motion:percentWidth="1" />
+            <KeyPosition
+                motion:framePosition="90"
+                motion:motionTarget="@+id/name"
+                motion:transitionEasing="decelerate" />
+            <KeyPosition
+                motion:framePosition="2"
+                motion:motionTarget="@+id/edit_icon"
+                motion:transitionEasing="accelerate"
+                motion:sizePercent="0" />
+
+        </KeyFrameSet>
+
+    </Transition>
+    <Transition
+        motion:constraintSetEnd="@+id/preveus"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:onTouchUp="autoCompleteToEnd"
+            motion:touchAnchorId="@id/toolbar"
+            motion:touchRegionId="@+id/toolbar"
+          />
+        <KeyFrameSet>
+            <KeyPosition
+                motion:framePosition="2"
+                motion:motionTarget="@+id/qr_code_icon"
+                motion:transitionEasing="accelerate"
+                motion:sizePercent="0" />
+            <KeyPosition
+                motion:framePosition="2"
+                motion:motionTarget="@+id/camera_icon"
+                motion:transitionEasing="accelerate"
+                motion:sizePercent="0" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#1D244A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/back_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/menu_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/back_icon"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/back_icon" />
+        <Constraint
+            android:id="@+id/edit_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/menu_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/menu_icon"
+            motion:layout_constraintTop_toTopOf="@+id/menu_icon" />
+        <Constraint
+            android:id="@+id/qr_code_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/edit_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/edit_icon"
+            motion:layout_constraintTop_toTopOf="@+id/edit_icon" />
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/image_profile"
+            motion:layout_constraintBottom_toBottomOf="@+id/app_bar"
+            motion:layout_constraintStart_toStartOf="@+id/back_icon"
+            motion:layout_constraintTop_toBottomOf="@+id/back_icon" />
+        <Constraint
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Hello World!"
+            android:textColor="@color/white"
+            motion:layout_constraintBottom_toTopOf="@id/state"
+            motion:layout_constraintStart_toEndOf="@id/image"
+            motion:layout_constraintTop_toTopOf="@+id/image">
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="14sp" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="online"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
+            motion:layout_constraintStart_toStartOf="@+id/name"
+            motion:layout_constraintTop_toBottomOf="@+id/name"
+            motion:layout_editor_absoluteX="122dp" />
+
+        <Constraint
+            android:id="@+id/camera_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/app_bar"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        <Constraint
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        <Constraint
+            android:id="@+id/number_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            motion:layout_constraintBottom_toBottomOf="@+id/qr_code_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/qr_code_icon"
+            motion:layout_constraintTop_toTopOf="@+id/qr_code_icon" />
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#1D244A"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/back_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/menu_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/back_icon"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/back_icon" />
+
+        <Constraint
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="online"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            motion:layout_constraintStart_toStartOf="@+id/name"
+            motion:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <Constraint
+            android:id="@+id/qr_code_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/menu_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/menu_icon"
+            motion:layout_constraintTop_toTopOf="@+id/menu_icon" />
+
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:scaleType="centerCrop"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/image_profile"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/name"
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="48dp"
+            motion:layout_constraintBottom_toTopOf="@+id/toolbar"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="24sp" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        <Constraint
+            android:id="@+id/camera_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/image" />
+        <Constraint
+            android:id="@+id/number_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/qr_code_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/qr_code_icon"
+            motion:layout_constraintTop_toTopOf="@+id/qr_code_icon" />
+        <Constraint
+            android:id="@+id/edit_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            motion:layout_constraintBottom_toBottomOf="@+id/menu_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/menu_icon"
+            motion:layout_constraintTop_toTopOf="@+id/menu_icon" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/preveus">
+        <Constraint
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:background="#1D244A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/back_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/menu_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/back_icon"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/back_icon" />
+        <Constraint
+            android:id="@+id/edit_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/menu_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/menu_icon"
+            motion:layout_constraintTop_toTopOf="@+id/menu_icon" />
+        <Constraint
+            android:id="@+id/qr_code_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/edit_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/edit_icon"
+            motion:layout_constraintTop_toTopOf="@+id/edit_icon" />
+
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/image_profile"
+            motion:layout_constraintBottom_toBottomOf="@+id/back_icon"
+            motion:layout_constraintStart_toEndOf="@+id/back_icon"
+            motion:layout_constraintTop_toTopOf="@id/back_icon" />
+
+        <Constraint
+            android:id="@+id/listInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        <Constraint
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Hello World!"
+            android:textColor="@color/white"
+            motion:layout_constraintBottom_toTopOf="@id/state"
+            motion:layout_constraintStart_toEndOf="@id/image"
+            motion:layout_constraintTop_toTopOf="@+id/image">
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="14sp" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="online"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
+            motion:layout_constraintStart_toStartOf="@+id/name"
+            motion:layout_constraintTop_toBottomOf="@+id/name" />
+        <Constraint
+            android:id="@+id/number_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            motion:layout_constraintBottom_toBottomOf="@+id/qr_code_icon"
+            motion:layout_constraintEnd_toStartOf="@+id/qr_code_icon"
+            motion:layout_constraintTop_toTopOf="@+id/qr_code_icon" />
+        <Constraint
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+
+        <Constraint
+            android:id="@+id/camera_icon"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0"
+            android:elevation="0dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/app_bar"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/app_bar" />
+    </ConstraintSet>
+
+</MotionScene>
